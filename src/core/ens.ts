@@ -22,20 +22,20 @@ export class Ens {
   protected _id: string;
 
   /**
-   * Gets an instance of already deployed value ledger.
-   * @param provider Provider class with which we communicate with blockchain.
-   */
-  public static getInstance(provider: GenericProvider, networkKind: NetworkKind) {
-    return new this(provider, networkKind);
-  }
-
-  /**
    * Initialize value ledger.
    * @param provider Provider class with which we communicate with blockchain.
    */
   public constructor(provider: GenericProvider, networkKind: NetworkKind) {
     this._provider = provider;
     this._id = getEnsAddress(networkKind);
+  }
+
+  /**
+   * Gets an instance of already deployed value ledger.
+   * @param provider Provider class with which we communicate with blockchain.
+   */
+  public static getInstance(provider: GenericProvider, networkKind: NetworkKind) {
+    return new this(provider, networkKind);
   }
 
   /**
