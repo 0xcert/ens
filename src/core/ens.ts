@@ -1,4 +1,4 @@
-import { GenericProvider, NetworkKind } from '@0xcert/ethereum-generic-provider';
+import { NetworkKind } from '@0xcert/ethereum-generic-provider';
 import { ZERO_ADDRESS } from '@0xcert/ethereum-utils';
 import * as namehash from 'eth-ens-namehash';
 import { getEnsAddress } from '../lib/contracts';
@@ -14,7 +14,7 @@ export class Ens {
   /**
    * Provider instance.
    */
-  protected _provider: GenericProvider;
+  protected _provider: any;
 
   /**
    * Ens Id. Address pointing at the smart contract.
@@ -25,7 +25,7 @@ export class Ens {
    * Initialize value ledger.
    * @param provider Provider class with which we communicate with blockchain.
    */
-  public constructor(provider: GenericProvider, networkKind: NetworkKind) {
+  public constructor(provider: any, networkKind: NetworkKind) {
     this._provider = provider;
     this._id = getEnsAddress(networkKind);
   }
@@ -34,7 +34,7 @@ export class Ens {
    * Gets an instance of already deployed value ledger.
    * @param provider Provider class with which we communicate with blockchain.
    */
-  public static getInstance(provider: GenericProvider, networkKind: NetworkKind) {
+  public static getInstance(provider: any, networkKind: NetworkKind) {
     return new this(provider, networkKind);
   }
 
